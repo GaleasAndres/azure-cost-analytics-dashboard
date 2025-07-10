@@ -1,8 +1,5 @@
-from fastapi import APIRouter
+from flask import Blueprint
 
-router = APIRouter()
+api_bp = Blueprint('api', __name__)
 
-
-@router.get("/hello")
-def hello_world():
-    return {"message": "Hello from API"}
+from . import routes  # noqa: E402,F401

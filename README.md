@@ -1,11 +1,11 @@
 # Azure Cost Analytics Dashboard
 
-This project provides a basic structure for a cross-platform web dashboard that displays Azure resource and cost analytics. It uses a Python backend with FastAPI and a simple HTML/JavaScript frontend. Authentication is expected to be handled via Azure AD.
+This project provides a basic structure for a cross-platform web dashboard that displays Azure resource and cost analytics. It uses a Python backend with Flask and a simple HTML/JavaScript frontend. Authentication is expected to be handled via Azure AD.
 
 ## Project Structure
 
 ```
-backend/    - FastAPI application and related modules
+backend/    - Flask application and related modules
 frontend/   - Static frontend files
 static/     - Placeholder for additional static assets
 ```
@@ -24,10 +24,10 @@ pip install -r requirements.txt
 3. Run the development server:
 
 ```bash
-uvicorn app:app --reload
+python app.py
 ```
 
-The API will be available at `http://localhost:8000`.
+The API will be available at `http://localhost:5000` by default.
 
 ## Testing
 

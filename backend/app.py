@@ -1,14 +1,17 @@
-from fastapi import FastAPI
+from flask import Flask, jsonify
+app = Flask(__name__)
 
-app = FastAPI()
 
-
-@app.get("/")
+@app.route("/")
 def read_root():
-    return {"message": "Hello, World!"}
+    return jsonify(message="Hello, World!")
 
 
-from api import router as api_router
+from api import api_bp
 
-app.include_router(api_router, prefix="/api")
+app.register_blueprint(api_bp, url_prefix="/api")
+
+
+if __name__ == "__main__":
+    app.run(debug=True)
 

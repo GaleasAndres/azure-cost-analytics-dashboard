@@ -1,5 +1,8 @@
-from fastapi import APIRouter
-from . import router as api_router
+from flask import jsonify
 
-api = APIRouter()
-api.include_router(api_router)
+from . import api_bp
+
+
+@api_bp.route('/hello')
+def hello_world():
+    return jsonify(message='Hello from API')
