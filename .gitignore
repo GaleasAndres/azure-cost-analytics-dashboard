@@ -13,3 +13,6 @@ node_modules/
 # Others
 .DS_Store
 
+# Python virtual environments
+venv/
+.venv/

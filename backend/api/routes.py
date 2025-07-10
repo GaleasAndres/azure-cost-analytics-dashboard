@@ -1,8 +1,9 @@
-from flask import jsonify
+# backend/api/routes.py
 
-from . import api_bp
+from flask import Blueprint, jsonify
 
+api_bp = Blueprint("api_bp", __name__)
 
-@api_bp.route('/hello')
-def hello_world():
-    return jsonify(message='Hello from API')
+@api_bp.route("/hello")
+def hello():
+    return jsonify({"message": "Hello from /api/hello!"})
