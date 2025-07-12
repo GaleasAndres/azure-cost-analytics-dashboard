@@ -1,3 +1,5 @@
 flask
 python-dotenv
 msal
+azure-mgmt-resource
+azure-mgmt-costmanagement

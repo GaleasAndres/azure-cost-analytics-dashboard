@@ -1,6 +1,7 @@
 from flask import Blueprint, redirect, url_for, session, request, jsonify
 import msal
 import uuid
+import time
 from config import CLIENT_ID, CLIENT_SECRET, AUTHORITY, REDIRECT_PATH, SCOPE
 
 auth_bp = Blueprint("auth_bp", __name__, url_prefix="/auth")
@@ -30,7 +31,7 @@ def callback():
     if "error" in request.args:
         return f"Error: {request.args['error']}", 400
 
-    code = request.args.get('code')
+    code = request.args.get("code")
     result = _build_msal_app().acquire_token_by_authorization_code(
         code,
         scopes=SCOPE,
@@ -39,6 +40,8 @@ def callback():
     if "access_token" in result:
         session["user"] = result.get("id_token_claims")
         session["access_token"] = result["access_token"]
+        if "expires_in" in result:
+            session["token_expires"] = int(time.time()) + int(result["expires_in"])
         return jsonify({"msg": "Login successful!", "user": session["user"]})
     else:
         return jsonify({"error": result.get("error"), "desc": result.get("error_description")})
