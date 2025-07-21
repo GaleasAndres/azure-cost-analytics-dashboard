@@ -2,6 +2,9 @@
 
 This project provides a basic structure for a cross-platform web dashboard that displays Azure resource and cost analytics. It uses a Python backend with Flask and a simple HTML/JavaScript frontend. Authentication is expected to be handled via Azure AD.
 
+> ⚠️ **Work in progress!**  
+> This project is still under development. Features may change or break.
+
 ## Project Structure
 
 ```
