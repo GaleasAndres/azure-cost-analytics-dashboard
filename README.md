@@ -25,7 +25,7 @@ A modern, interactive web dashboard for analyzing Azure cloud costs and resource
 
 1. **Clone the repository**:
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/GaleasAndres/azure-cost-analytics-dashboard
    cd azure-cost-analytics-dashboard
    ```
 
