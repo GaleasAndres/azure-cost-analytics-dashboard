@@ -36,4 +36,5 @@ jobs:
           FLASK_SECRET_KEY: testsecret
         run: |
           source venv/bin/activate
+          cd backend
           pytest -q
