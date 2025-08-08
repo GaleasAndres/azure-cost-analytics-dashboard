@@ -21,15 +21,21 @@
 
 ### Configure API Permissions
 
-1. In your app registration, go to **API permissions**
-2. Click **Add a permission**
-3. Select **Microsoft Graph**
-4. Choose **Delegated permissions**
-5. Add these permissions:
-   - `User.Read` (for authentication)
-   - `Directory.Read.All` (for subscription access)
-6. Click **Add permissions**
-7. Click **Grant admin consent**
+You need both Microsoft Graph and Azure Resource/Cost Management permissions:
+
+- Microsoft Graph (Delegated)
+  - `User.Read`
+
+- Azure Service Management (Delegated)
+  - `user_impersonation` (Required to call Azure Resource Manager for subscriptions/resources)
+
+- Azure Resource Management Scopes (via OAuth scope when requesting token)
+  - `https://management.azure.com/.default`
+
+Optionally, some tenants require the classic scope:
+  - `https://management.core.windows.net/.default`
+
+After adding permissions, click **Grant admin consent**.
 
 ### Get Application Credentials
 
@@ -43,7 +49,7 @@
 
 ## Step 2: Environment Configuration
 
-1. Copy `.env.example` to `.env` (if it exists) or create a new `.env` file
+1. Create a `.env` file
 2. Add your Azure credentials:
 
 ```bash
@@ -94,8 +100,8 @@ The dashboard will be available at `http://localhost:5000`
 ### Common Issues
 
 1. **Authentication Errors**: Make sure your Azure AD app has the correct redirect URI
-2. **Permission Errors**: Ensure your app has the required API permissions
-3. **Cost Data Not Loading**: Verify your Azure subscription has cost data available
+2. **Permission Errors**: Ensure you granted `Azure Service Management -> user_impersonation` and consent
+3. **Cost Data Not Loading**: Verify your tenant allows Cost Management API access and that the token has `https://management.azure.com/.default` scope
 4. **Port Already in Use**: Change the port in `app.py` or stop other services using port 5000
 
 ### Getting Help
