@@ -74,12 +74,16 @@ def debug_cost_query():
         end_date = datetime.date.today()
         start_date = end_date - datetime.timedelta(days=7)
         
+        # Convert to datetime with timezone for proper ISO format
+        start_dt = datetime.datetime.combine(start_date, datetime.time.min, tzinfo=datetime.timezone.utc)
+        end_dt = datetime.datetime.combine(end_date, datetime.time.max, tzinfo=datetime.timezone.utc)
+        
         query = {
             "type": "Usage",
             "timeframe": "Custom",
             "timePeriod": {
-                "from": start_date.isoformat(),
-                "to": end_date.isoformat(),
+                "from": start_dt.isoformat(),
+                "to": end_dt.isoformat(),
             },
             "dataset": {
                 "granularity": "Daily",

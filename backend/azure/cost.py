@@ -1,6 +1,7 @@
 """Cost analytics helpers using Azure Cost Management."""
 
 import datetime as _dt
+from datetime import timezone
 
 from azure.mgmt.costmanagement import CostManagementClient
 
@@ -22,12 +23,16 @@ class CostAnalyzer:
         start: _dt.date = (today - _dt.timedelta(days=1)).replace(day=1)
         end: _dt.date = today - _dt.timedelta(days=1)
 
+        # Convert to datetime with timezone for proper ISO format
+        start_dt = _dt.datetime.combine(start, _dt.time.min, tzinfo=timezone.utc)
+        end_dt = _dt.datetime.combine(end, _dt.time.max, tzinfo=timezone.utc)
+
         query: dict[str, object] = {
             "type": "Usage",
             "timeframe": "Custom",
             "timePeriod": {
-                "from": start.isoformat(),
-                "to": end.isoformat(),
+                "from": start_dt.isoformat(),
+                "to": end_dt.isoformat(),
             },
             "dataset": {
                 "granularity": "Daily",
@@ -45,10 +50,14 @@ class CostAnalyzer:
         start: _dt.date = (today - _dt.timedelta(days=1)).replace(day=1)
         end: _dt.date = today - _dt.timedelta(days=1)
 
+        # Convert to datetime with timezone for proper ISO format
+        start_dt = _dt.datetime.combine(start, _dt.time.min, tzinfo=timezone.utc)
+        end_dt = _dt.datetime.combine(end, _dt.time.max, tzinfo=timezone.utc)
+
         query: dict[str, object] = {
             "type": "Usage",
             "timeframe": "Custom",
-            "timePeriod": {"from": start.isoformat(), "to": end.isoformat()},
+            "timePeriod": {"from": start_dt.isoformat(), "to": end_dt.isoformat()},
             "dataset": {
                 "granularity": "Daily",
                 "aggregation": {"totalCost": {"name": "Cost", "function": "Sum"}},
