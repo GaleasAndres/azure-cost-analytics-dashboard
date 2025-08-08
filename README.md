@@ -4,14 +4,14 @@ A modern, interactive web dashboard for analyzing Azure cloud costs and resource
 
 ## ✨ Features
 
-- **🔐 Azure AD Authentication**: Secure login with your Azure credentials
-- **📊 Real-time Cost Analytics**: Live cost data from Azure Cost Management API
-- **📈 Interactive Charts**: Visual cost trends and resource group breakdowns
-- **🏗️ Resource Management**: View and manage Azure resource groups
-- **📱 Responsive Design**: Works seamlessly on desktop and mobile devices
-- **🎨 Modern UI**: Beautiful, intuitive interface with smooth animations
+- **Azure AD Authentication**: Secure login with your Azure credentials
+- **Real-time Cost Analytics**: Live cost data from Azure Cost Management API
+- **Interactive Charts**: Visual cost trends and resource group breakdowns
+- **Resource Management**: View and manage Azure resource groups
+- **Responsive Design**: Works seamlessly on desktop and mobile devices
+- **Modern UI**: Beautiful, intuitive interface with smooth animations
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### Prerequisites
 
@@ -44,11 +44,11 @@ A modern, interactive web dashboard for analyzing Azure cloud costs and resource
 5. **Access the dashboard**:
    Open your browser and navigate to `http://localhost:5000`
 
-## 📋 Setup Guide
+## Setup Guide
 
 For detailed setup instructions, including Azure AD application configuration, see the [Setup Guide](SETUP.md).
 
-## 🏗️ Project Structure
+## Project Structure
 
 ```
 azure-cost-analytics-dashboard/
@@ -74,7 +74,7 @@ azure-cost-analytics-dashboard/
 └── README.md
 ```
 
-## 🔧 API Endpoints
+## API Endpoints
 
 The dashboard provides the following REST API endpoints:
 
@@ -84,7 +84,7 @@ The dashboard provides the following REST API endpoints:
 - `GET /api/costs/last-month` - Get daily cost data for the previous month
 - `GET /api/costs/by-resource-group` - Get cost breakdown by resource group
 
-## 🎨 Features Overview
+## Features Overview
 
 ### Cost Analytics Dashboard
 - **Total Cost**: Overview of total spending for the selected period
@@ -110,7 +110,7 @@ The dashboard provides the following REST API endpoints:
 - **Environment Variables**: Sensitive configuration stored in environment variables
 - **HTTPS Ready**: Configured for secure production deployments
 
-## 🛠️ Development
+## Development
 
 ### Running in Development Mode
 
@@ -138,7 +138,7 @@ AZURE_REDIRECT_URI=http://localhost:5000/auth/callback
 FLASK_SECRET_KEY=your_flask_secret_key
 ```
 
-## 🤝 Contributing
+## Contributing
 
 1. Fork the repository
 2. Create a feature branch (`git checkout -b feature/amazing-feature`)
@@ -146,7 +146,7 @@ FLASK_SECRET_KEY=your_flask_secret_key
 4. Push to the branch (`git push origin feature/amazing-feature`)
 5. Open a Pull Request
 
-## 📄 License
+## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
