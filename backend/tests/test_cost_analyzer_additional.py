@@ -29,6 +29,14 @@ class DummyResultColsAsObjects:
     ]
 
 
+class DummyResultResourceGroup:
+    columns = [QueryColumn("UsageDate", "datetime"), QueryColumn("ResourceGroupName", "string"), QueryColumn("Cost", "number")]
+    rows = [
+        ["2024-10-01", "rg1", 3.14],
+        ["2024-10-02", "rg2", 6.28],
+    ]
+
+
 class DummyQueryStrings:
     def usage(self, scope: str, parameters: dict) -> DummyResultColsAsStrings:
         # Validate expected keys are present in the query
@@ -43,6 +51,11 @@ class DummyQueryObjects:
         return DummyResultColsAsObjects()
 
 
+class DummyQueryResourceGroup:
+    def usage(self, scope: str, parameters: dict) -> DummyResultResourceGroup:
+        return DummyResultResourceGroup()
+
+
 class DummyClientStrings:
     def __init__(self, credential: object) -> None:
         self.query = DummyQueryStrings()
@@ -51,6 +64,11 @@ class DummyClientStrings:
 class DummyClientObjects:
     def __init__(self, credential: object) -> None:
         self.query = DummyQueryObjects()
+
+
+class DummyClientResourceGroup:
+    def __init__(self, credential: object) -> None:
+        self.query = DummyQueryResourceGroup()
 
 
 class DummyCredential:
@@ -89,7 +107,7 @@ def test_actual_cost_last_month_with_string_columns(monkeypatch):
 def test_cost_per_resource_group_with_querycolumn_objects(monkeypatch):
     _install_dummy_core(monkeypatch)
 
-    dummy_mod = types.SimpleNamespace(CostManagementClient=DummyClientObjects)
+    dummy_mod = types.SimpleNamespace(CostManagementClient=DummyClientResourceGroup)
     monkeypatch.setitem(sys.modules, "azure.mgmt.costmanagement", dummy_mod)
 
     from backend.azure import cost as cost_module
