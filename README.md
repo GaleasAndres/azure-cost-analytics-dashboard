@@ -2,6 +2,8 @@
 
 A modern, interactive web dashboard for analyzing Azure cloud costs and resource usage. This application provides real-time cost analytics, resource group breakdowns, and daily cost trends through a beautiful, responsive interface.
 
+> ⚠️ **Work in Progress:** This project is currently under active development. Features, code, and documentation may change frequently.
+
 ## ✨ Features
 
 - **Azure AD Authentication**: Secure login with your Azure credentials
