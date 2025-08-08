@@ -52,5 +52,5 @@ def logout():
     session.clear()
     return redirect(
         f"{AUTHORITY}/oauth2/v2.0/logout"
-        f"?post_logout_redirect_uri={url_for('read_root', _external=True)}"
+        f"?post_logout_redirect_uri={url_for('home', _external=True)}"
     )
