@@ -12,6 +12,20 @@ api_bp = Blueprint("api_bp", __name__)
 def hello():
     return jsonify({"message": "Hello from /api/hello!"})
 
+@api_bp.route("/auth/status")
+def auth_status():
+    """Check if user is authenticated and return user info."""
+    if "user" in session and "access_token" in session:
+        return jsonify({
+            "authenticated": True,
+            "user": session["user"]
+        })
+    else:
+        return jsonify({
+            "authenticated": False,
+            "user": None
+        })
+
 @api_bp.route("/costs/last-month")
 def get_last_month_costs():
     """Get daily cost data for the previous month."""

@@ -44,17 +44,18 @@ class AzureCostDashboard {
 
     async checkAuthenticationStatus() {
         try {
-            const response = await fetch('/api/hello');
+            const response = await fetch('/api/auth/status');
             if (response.ok) {
-                this.isAuthenticated = true;
-                this.updateAuthUI();
+                const data = await response.json();
+                this.isAuthenticated = data.authenticated;
+                this.updateAuthUI(data.user);
             }
         } catch (error) {
             console.log('Not authenticated or server not running');
         }
     }
 
-    updateAuthUI() {
+    updateAuthUI(user = null) {
         const loginBtn = document.getElementById('login-btn');
         const userInfo = document.getElementById('user-info');
         const userName = document.getElementById('user-name');
@@ -62,7 +63,11 @@ class AzureCostDashboard {
         if (this.isAuthenticated) {
             loginBtn.classList.add('hidden');
             userInfo.classList.remove('hidden');
-            userName.textContent = 'Azure User'; // In a real app, get from session
+            if (user && user.name) {
+                userName.textContent = user.name;
+            } else {
+                userName.textContent = 'Azure User';
+            }
         } else {
             loginBtn.classList.remove('hidden');
             userInfo.classList.add('hidden');
