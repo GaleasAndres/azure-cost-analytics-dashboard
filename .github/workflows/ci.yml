@@ -2,6 +2,46 @@ name: CI
 
 on:
   push:
+    branches: [ main, feature/** ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          python -m venv venv
+          source venv/bin/activate
+          pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install pytest
+
+      - name: Run tests
+        env:
+          # Provide dummy envs to satisfy imports; tests mock Azure SDK
+          AZURE_CLIENT_ID: dummy
+          AZURE_TENANT_ID: dummy
+          AZURE_CLIENT_SECRET: dummy
+          AZURE_REDIRECT_URI: http://localhost:5000/auth/callback
+          FLASK_SECRET_KEY: testsecret
+        run: |
+          source venv/bin/activate
+          pytest -q
+
+name: CI
+
+on:
+  push:
     branches: [ main ]
   pull_request:
     branches: [ main ]
