@@ -10,7 +10,7 @@ class AzureCostDashboard {
     init() {
         this.setupEventListeners();
         this.checkAuthenticationStatus();
-        this.loadSubscriptions();
+        // Do NOT load subscriptions until we know the user is authenticated
     }
 
     setupEventListeners() {
@@ -49,6 +49,10 @@ class AzureCostDashboard {
                 const data = await response.json();
                 this.isAuthenticated = data.authenticated;
                 this.updateAuthUI(data.user);
+                // Only load subscriptions if authenticated
+                if (this.isAuthenticated) {
+                    await this.loadSubscriptions();
+                }
             }
         } catch (error) {
             console.log('Not authenticated or server not running');
@@ -61,16 +65,18 @@ class AzureCostDashboard {
         const userName = document.getElementById('user-name');
 
         if (this.isAuthenticated) {
-            loginBtn.classList.add('hidden');
-            userInfo.classList.remove('hidden');
+            loginBtn?.classList.add('hidden');
+            userInfo?.classList.remove('hidden');
             if (user && user.name) {
                 userName.textContent = user.name;
+            } else if (user && user.preferred_username) {
+                userName.textContent = user.preferred_username;
             } else {
                 userName.textContent = 'Azure User';
             }
         } else {
-            loginBtn.classList.remove('hidden');
-            userInfo.classList.add('hidden');
+            loginBtn?.classList.remove('hidden');
+            userInfo?.classList.add('hidden');
         }
     }
 

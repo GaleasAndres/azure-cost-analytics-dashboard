@@ -1,5 +1,2 @@
-from flask import Blueprint
-
-api_bp = Blueprint('api', __name__)
-
-from . import routes  # noqa: E402,F401
+# Expose the API blueprint defined in routes so all routes are registered correctly
+from .routes import api_bp  # noqa: F401
