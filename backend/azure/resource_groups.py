@@ -10,7 +10,7 @@ class ResourceGroupManager:
         credential = get_flask_credential()
         self._client = ResourceManagementClient(credential, subscription_id)
 
-    def list_groups(self) -> list[dict]:
+    def list_resource_groups(self) -> list[dict]:
         """Return resource groups for the subscription."""
 
         groups = self._client.resource_groups.list()
