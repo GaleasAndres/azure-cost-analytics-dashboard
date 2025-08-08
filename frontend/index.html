@@ -2,15 +2,117 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Azure Cost Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Azure Cost Analytics Dashboard</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <h1>Azure Cost Analytics Dashboard</h1>
-    <a href="/auth/login">
-        <button style="font-size:1.2em;padding:0.5em 1em;">Sign in with Azure</button>
-    </a>
-    <div id="content"></div>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-chart-line"></i>
+                    <h1>Azure Cost Analytics</h1>
+                </div>
+                <div class="auth-section">
+                    <div id="user-info" class="user-info hidden">
+                        <span id="user-name"></span>
+                        <button id="logout-btn" class="btn-secondary">
+                            <i class="fas fa-sign-out-alt"></i> Logout
+                        </button>
+                    </div>
+                    <button id="login-btn" class="btn-primary">
+                        <i class="fas fa-sign-in-alt"></i> Sign in with Azure
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Subscription Selector -->
+            <div class="subscription-selector">
+                <label for="subscription-select">Select Subscription:</label>
+                <select id="subscription-select" class="form-select">
+                    <option value="">Loading subscriptions...</option>
+                </select>
+            </div>
+
+            <!-- Dashboard Grid -->
+            <div class="dashboard-grid">
+                <!-- Cost Summary Cards -->
+                <div class="card cost-summary">
+                    <div class="card-header">
+                        <h3><i class="fas fa-dollar-sign"></i> Cost Summary</h3>
+                    </div>
+                    <div class="card-content">
+                        <div class="metric-grid">
+                            <div class="metric">
+                                <span class="metric-label">Total Cost</span>
+                                <span id="total-cost" class="metric-value">$0.00</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-label">Avg Daily Cost</span>
+                                <span id="avg-daily-cost" class="metric-value">$0.00</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-label">Period</span>
+                                <span id="period-days" class="metric-value">0 days</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Resource Group Costs -->
+                <div class="card resource-groups">
+                    <div class="card-header">
+                        <h3><i class="fas fa-layer-group"></i> Costs by Resource Group</h3>
+                    </div>
+                    <div class="card-content">
+                        <div id="resource-groups-list" class="resource-groups-list">
+                            <div class="loading">Loading resource group costs...</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Daily Cost Chart -->
+                <div class="card daily-costs">
+                    <div class="card-header">
+                        <h3><i class="fas fa-chart-area"></i> Daily Cost Trend</h3>
+                    </div>
+                    <div class="card-content">
+                        <div id="daily-costs-chart" class="chart-container">
+                            <div class="loading">Loading daily costs...</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Resource Groups List -->
+                <div class="card resource-groups-detail">
+                    <div class="card-header">
+                        <h3><i class="fas fa-list"></i> Resource Groups</h3>
+                    </div>
+                    <div class="card-content">
+                        <div id="resource-groups-table" class="table-container">
+                            <div class="loading">Loading resource groups...</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Loading Overlay -->
+        <div id="loading-overlay" class="loading-overlay hidden">
+            <div class="loading-spinner">
+                <i class="fas fa-spinner fa-spin"></i>
+                <p>Loading Azure data...</p>
+            </div>
+        </div>
+    </div>
+
     <script src="app.js"></script>
 </body>
 </html>

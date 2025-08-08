@@ -42,7 +42,8 @@ def callback():
         session["access_token"] = result["access_token"]
         if "expires_in" in result:
             session["token_expires"] = int(time.time()) + int(result["expires_in"])
-        return jsonify({"msg": "Login successful!", "user": session["user"]})
+        # Redirect to the main dashboard after successful login
+        return redirect(url_for('home'))
     else:
         return jsonify({"error": result.get("error"), "desc": result.get("error_description")})
 
@@ -51,5 +52,5 @@ def logout():
     session.clear()
     return redirect(
         f"{AUTHORITY}/oauth2/v2.0/logout"
-        f"?post_logout_redirect_uri={url_for('read_root', _external=True)}"
+        f"?post_logout_redirect_uri={url_for('home', _external=True)}"
     )
