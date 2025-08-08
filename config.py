@@ -14,6 +14,9 @@ AUTHORITY = f"https://login.microsoftonline.com/{TENANT_ID}"
 REDIRECT_PATH = "/auth/callback"  # Must match your Azure App Registration
 
 # OAuth scopes: "User.Read" lets you test login; for Azure Resource APIs, use Azure scopes
-SCOPE = ["User.Read"]
+SCOPE = [
+    "https://management.azure.com/.default",
+    "https://management.core.windows.net/.default"
+]
 
 SESSION_TYPE = "filesystem"  # Optional, but recommended for Flask session
