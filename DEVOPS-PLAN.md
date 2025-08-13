@@ -1,5 +1,3 @@
-an R`
-
 ## Project Overview
 
 ### Learning Objectives
