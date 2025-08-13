@@ -19,3 +19,6 @@ venv/
 
 # .idea directory
 .idea/
+
+# Claude Code configuration
+CLAUDE.md
