@@ -1,4 +1,4 @@
-# Azure Cost Analytics Dashboard - Setup Guide
+# Getting Started
 
 ## Prerequisites
 
