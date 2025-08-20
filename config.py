@@ -13,10 +13,9 @@ FLASK_SECRET_KEY = os.getenv("FLASK_SECRET_KEY")
 AUTHORITY = f"https://login.microsoftonline.com/{TENANT_ID}"
 REDIRECT_PATH = "/auth/callback"  # Must match your Azure App Registration
 
-# OAuth scopes: "User.Read" lets you test login; for Azure Resource APIs, use Azure scopes
+# OAuth scopes: Use only the primary Azure management scope
 SCOPE = [
-    "https://management.azure.com/.default",
-    "https://management.core.windows.net/.default"
+    "https://management.azure.com/.default"
 ]
 
 SESSION_TYPE = "filesystem"  # Optional, but recommended for Flask session
