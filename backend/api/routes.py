@@ -8,6 +8,15 @@ import datetime
 
 api_bp = Blueprint("api_bp", __name__)
 
+@api_bp.route("/health")
+def health_check():
+    """Health check endpoint for Docker containers and load balancers."""
+    return jsonify({
+        "status": "healthy",
+        "service": "azure-cost-analytics-dashboard",
+        "timestamp": datetime.datetime.utcnow().isoformat()
+    })
+
 @api_bp.route("/auth/status")
 def auth_status():
     """Check if user is authenticated and return user info."""
