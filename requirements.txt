@@ -3,3 +3,5 @@ python-dotenv
 msal
 azure-mgmt-resource
 azure-mgmt-costmanagement
+gunicorn
+requests
