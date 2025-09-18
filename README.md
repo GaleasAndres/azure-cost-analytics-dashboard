@@ -49,7 +49,7 @@ Azure:
 
 **The goal?** To experience what it's really like working on production software - from idea to deployment to monitoring. Not just tutorials, but a real project with real costs, real decisions, and real learning.
 
-## 🎯 What I'm Learning
+## What I'm Learning
 
 - **Azure Infrastructure as Code (Bicep)** - Az-104 certification preparation with real hosting/deployments
 - **Multiple Hosting Strategies** - App Service, Container Instances, AKS, Container Apps comparison
