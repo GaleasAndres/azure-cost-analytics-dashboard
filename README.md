@@ -210,6 +210,6 @@ After completing this project, My goal is to have deepen my knowledge, better un
 
 ---
 
-**🎓 Built for learning Azure, DevOps, and modern cloud development practices**
+**Built for learning Azure, DevOps, and modern cloud development practices**
 
 *This project demonstrates real-world infrastructure management, deployment strategies, and operational practices used in enterprise environments.*
