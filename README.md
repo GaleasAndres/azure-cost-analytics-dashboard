@@ -1,6 +1,6 @@
 # Azure Cost Analytics Dashboard
 
-## 👋 Hey there! This is my learning journey...
+## Hey there! This is my learning journey...
 
 I'm building this project because I wanted to practice and build something that would help me learn more about cloud technologies, infrastructure, and modern development practices. My goal is to actually experience how the *software development lifecycle* works in the real world through hands-on work — not just the coding part, but the whole picture — from having an idea to bringing it to production.
 
@@ -10,11 +10,11 @@ While, with this project, I'm covering the whole software development lifecycle,
 
 > This Project is a Work in progress...
 
-## 🤔 Why I'm doing this
+## Why I'm doing this
 
 I wanted hands-on experience with **all the pieces** of modern cloud development:
 
-**☁️ Azure Cloud Technologies** - because I'm passionate about the Cloud and 
+**Azure Cloud Technologies** - because I'm passionate about the Cloud and 
 Azure:
 - Azure SDK and services integration 
 - Azure AD authentication (OAuth 2.0)
@@ -22,25 +22,25 @@ Azure:
 - Azure CLI and PowerShell automation
 - Cost Management APIs and monitoring
 
-**🏗️ Infrastructure as Code (IaC)** - because I love hitting the keyboard, using a terminal or writing script for doing things, over clicking around Azure Portal (which is also okay):
+**Infrastructure as Code (IaC)** - because I love hitting the keyboard, using a terminal or writing script for doing things, over clicking around Azure Portal (which is also okay):
 - Bicep templates and modules
 - Resource management and organization  
 - Multi-environment deployments
 - Infrastructure automation scripts
 
-**🐳 Containerization & Orchestration** - containers are everywhere, so I wanted to dive deeper:
+**Containerization & Orchestration** - containers are everywhere, so I wanted to dive deeper:
 - Docker images and multi-stage builds
 - Kubernetes manifests and Helm charts
 - Container registries and image management
 - Production-ready containerization
 
-**💻 Full-Stack Development** - to build something actually useful:
+**Full-Stack Development** - to build something actually useful:
 - **Backend**: Python Flask APIs with Azure SDK integration
 - **Frontend**: Vanilla JavaScript, HTML5, CSS3 (no framework bloat)
 - **Authentication**: Azure AD OAuth flow implementation
 - **Data**: Real-time Azure cost analytics and visualizations
 
-**🔄 DevOps Practices** - because deployment shouldn't be scary:
+**DevOps Practices** - because deployment shouldn't be scary:
 - Git branching strategies and feature workflows
 - CI/CD pipelines with GitHub Actions  
 - Environment management (dev/prod)
@@ -51,14 +51,14 @@ Azure:
 
 ## 🎯 What I'm Learning
 
-- **☁️ Azure Infrastructure as Code (Bicep)** - Az-104 certification preparation with real hosting/deployments
-- **🚀 Multiple Hosting Strategies** - App Service, Container Instances, AKS, Container Apps comparison
-- **🔄 DevOps Best Practices** - Feature branch workflows, automated CI/CD, environment management
-- **💰 Cost Optimization** - Resource sizing strategies, pricing model analysis, and budget management  
-- **📊 Production Operations** - Monitoring, logging, security, and maintenance practices
-- **🐳 Containerization** - Docker, registry management, and container orchestration
+- **Azure Infrastructure as Code (Bicep)** - Az-104 certification preparation with real hosting/deployments
+- **Multiple Hosting Strategies** - App Service, Container Instances, AKS, Container Apps comparison
+- **DevOps Best Practices** - Feature branch workflows, automated CI/CD, environment management
+- **Cost Optimization** - Resource sizing strategies, pricing model analysis, and budget management  
+- **Production Operations** - Monitoring, logging, security, and maintenance practices
+- **Containerization** - Docker, registry management, and container orchestration
 
-## ✨ Application Features
+## Application Features
 
 The Azure Cost Analytics Dashboard provides:
 
@@ -68,7 +68,7 @@ The Azure Cost Analytics Dashboard provides:
 - **Resource Group Analytics** - Cost attribution and resource group breakdowns
 - **Interactive Dashboard** - Real-time charts and responsive design
 
-## 🏗️ Architecture Overview
+## Architecture Overview
 
 ```
 ┌─────────────────┐    ┌──────────────────┐    ┌─────────────────────┐
@@ -86,7 +86,7 @@ The Azure Cost Analytics Dashboard provides:
          └───────────────┴────────────────────┘
 ```
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 azure-cost-analytics-dashboard/
@@ -119,7 +119,7 @@ azure-cost-analytics-dashboard/
     └── styles.css             # Modern styling
 ```
 
-## 🚀 Quick Start
+## Quick Start
 
 ### For Application Development
 1. **Setup**: Follow [docs/getting-started.md](docs/getting-started.md) for Azure AD configuration
@@ -131,7 +131,7 @@ azure-cost-analytics-dashboard/
 2. **Deployments**: Explore [docs/deployment-guide.md](docs/deployment-guide.md) for hosting strategies
 3. **Workflow**: Study [docs/environments-and-branching.md](docs/environments-and-branching.md) for DevOps practices
 
-## 🌍 Environment Strategy
+## Environment Strategy
 
 This project uses a **cost-optimized learning approach**:
 
@@ -145,7 +145,7 @@ This project uses a **cost-optimized learning approach**:
 - **Purpose**: Cost-effective production deployment
 - **Cost**: ~$171/month for production-ready hosting
 
-## 🛠️ Technology Stack
+## Technology Stack
 
 | Layer | Technologies | Purpose |
 |-------|-------------|---------|
@@ -157,7 +157,7 @@ This project uses a **cost-optimized learning approach**:
 | **Monitoring** | Application Insights, Log Analytics | Observability and performance tracking |
 | **CI/CD** | GitHub Actions, Azure DevOps | Automated deployment pipelines |
 
-## 📚 Documentation
+## Documentation
 
 Comprehensive documentation is available in the [docs/](docs/) directory:
 
@@ -167,7 +167,7 @@ Comprehensive documentation is available in the [docs/](docs/) directory:
 - **[Deployment Guide](docs/deployment-guide.md)** - Container strategies and hosting methods
 - **[Environments & Branching](docs/environments-and-branching.md)** - Development workflow and CI/CD
 
-## 💡 Key Learning Outcomes
+## Key Learning Outcomes
 
 After completing this project, My goal is to have deepen my knowledge, better understand the concepts and have practical experience with:
 
@@ -192,7 +192,7 @@ After completing this project, My goal is to have deepen my knowledge, better un
 - ✅ **Registry Management** - Image versioning and security scanning
 
 
-## 💰 Cost Analysis
+## Cost Analysis
 
 | Environment | Components | Monthly Cost | Learning Value |
 |-------------|------------|--------------|----------------|
@@ -201,7 +201,7 @@ After completing this project, My goal is to have deepen my knowledge, better un
 | **Total Project** | Complete multi-environment setup | ~$285 | **Comprehensive Azure DevOps learning** |
 
 
-## 🆘 Support & Resources
+## Support & Resources
 
 - **Documentation**: Complete guides in [docs/](docs/) directory
 - **Azure Learning**: Official [Azure documentation](https://docs.microsoft.com/azure/)
